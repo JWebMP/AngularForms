@@ -1,0 +1,92 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.jwebmp</groupId>
+        <artifactId>parent</artifactId>
+        <version>2.0.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.jwebmp.plugins</groupId>
+    <artifactId>angular-forms</artifactId>
+    <version>2.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>Angular Forms</name>
+    <description>Angular Forms
+    </description>
+    <url>https://github.com/JWebMP/AngularForms</url>
+
+    <properties>
+        <ignore.moditect>true</ignore.moditect>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.jwebmp.core</groupId>
+            <artifactId>jwebmp-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jwebmp.plugins</groupId>
+            <artifactId>angular</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jwebmp.plugins</groupId>
+            <artifactId>typescript-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guicedee.servlets</groupId>
+            <artifactId>guiced-vertx-sockets</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.guicedee</groupId>
+            <artifactId>guice-injection</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+
+        </dependency>
+
+    </dependencies>
+    <scm>
+        <url>https://github.com/GedMarc/JWebMP-AngularJS.git</url>
+    </scm>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.guicedee</groupId>
+                <artifactId>standalone-bom</artifactId>
+                <type>pom</type>
+                <scope>import</scope>
+                <version>${guicedee.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.jwebmp</groupId>
+                <artifactId>jwebmp-bom</artifactId>
+                <type>pom</type>
+                <scope>import</scope>
+                <version>${guicedee.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
