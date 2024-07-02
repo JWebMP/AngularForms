@@ -116,5 +116,4 @@ public class AngularForm<J extends AngularForm<J>> extends Form<J> implements IN
         out.add(getNgComponentReference((Class<? extends IComponent<?>>) formDataProvider.getClass()));
         return out;
     }
-
 }
