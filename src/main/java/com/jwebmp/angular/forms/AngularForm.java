@@ -1,9 +1,7 @@
 package com.jwebmp.angular.forms;
 
 import com.guicedee.client.IGuiceContext;
-import com.jwebmp.core.base.angular.client.annotations.boot.NgBootModuleImport;
 import com.jwebmp.core.base.angular.client.annotations.components.NgInput;
-import com.jwebmp.core.base.angular.client.annotations.constructors.NgConstructorParameter;
 import com.jwebmp.core.base.angular.client.annotations.references.NgComponentReference;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.annotations.structures.NgField;
@@ -14,15 +12,13 @@ import com.jwebmp.core.base.angular.client.services.interfaces.INgServiceProvide
 import com.jwebmp.core.base.html.Form;
 
 import java.util.List;
+import java.util.Set;
 
 import static com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils.getNgComponentReference;
 
-@NgBootModuleImport("FormsModule")
 @NgComponentReference(FormRegexProvider.class)
-@NgImportReference(value = "FormBuilder, FormGroup, Validators, FormControl, FormArray, ControlValueAccessor ",
-                   reference = "@angular/forms")
-@NgConstructorParameter("private formBuilder : FormBuilder")
 @NgField("regex = FormRegexProvider;")
+@NgImportReference(value = "FormsModule", reference = "@angular/forms")
 
 public class AngularForm<J extends AngularForm<J>> extends Form<J> implements INgComponent<J>
 {
@@ -31,6 +27,14 @@ public class AngularForm<J extends AngularForm<J>> extends Form<J> implements IN
     AngularForm()
     {
 
+    }
+
+    @Override
+    public Set<String> moduleImports()
+    {
+        var s = INgComponent.super.moduleImports();
+        s.add("FormsModule");
+        return s;
     }
 
     @Override
@@ -47,16 +51,20 @@ public class AngularForm<J extends AngularForm<J>> extends Form<J> implements IN
     }
 
     @Override
-    public void init()
+    protected void init()
     {
+        if (this.formDataProvider != null)
+        {
+            addConfiguration(getNgComponentReference((Class<? extends IComponent<?>>) formDataProvider.getClass()));
+        }
         addAttribute("#" + getID(), "ngForm");
         super.init();
     }
 
     @Override
-    public List<String> componentMethods()
+    public List<String> methods()
     {
-        List<String> out = INgComponent.super.componentMethods();
+        List<String> out = INgComponent.super.methods();
         if (formDataProvider == null)
         {
             return out;

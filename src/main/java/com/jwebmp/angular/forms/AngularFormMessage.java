@@ -42,7 +42,7 @@ public class AngularFormMessage<J extends AngularFormMessage<J>> extends DivSimp
     }
 
     @Override
-    public void init()
+    protected void init()
     {
         addAttribute("*ngIf", "" + fieldName + ".errors?.['" + error.toString() + "']");
         add(new Paragraph<>().setText(messageString)

@@ -50,11 +50,12 @@ public class AngularTSOnBind
             {
                 input.addAttribute("name", input.getID());
             }
+            // input.addAttribute("#" + input.getID(), "ngModel");
         }
         else
         {
             input.removeAttribute("[(ngModel)]");
         }
-        input.addAttribute("#" + input.getID(), "ngModel");
+
     }
 }
