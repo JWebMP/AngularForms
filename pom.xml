@@ -38,8 +38,8 @@
         </dependency>
 
         <dependency>
-            <groupId>com.guicedee</groupId>
-            <artifactId>guiced-vertx-sockets</artifactId>
+            <groupId>com.jwebmp</groupId>
+            <artifactId>jwebmp-vertx</artifactId>
         </dependency>
 
         <dependency>
