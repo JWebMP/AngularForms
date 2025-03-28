@@ -75,28 +75,27 @@ public class AngularForm<J extends AngularForm<J>> extends Form<J> implements IN
         sendDataString.append("onSubmit() {\n");
 
         List<NgInput> inputList = IGuiceContext.get(AnnotationHelper.class)
-                                               .getAnnotationFromClass(getClass(), NgInput.class);
+                .getAnnotationFromClass(getClass(), NgInput.class);
         StringBuilder inputs = new StringBuilder();
         for (NgInput ngInput : inputList)
         {
             if (ngInput.additionalData())
             {
                 inputs.append("\t\tthis." + getFormDataProvider().getAnnotation()
-                                                                 .referenceName() +
-                                      ".additionalData." + ngInput.value() + " = this." + ngInput.value() + ";\n");
+                        .referenceName() +
+                        ".additionalData." + ngInput.value() + " = this." + ngInput.value() + ";\n");
             }
         }
         sendDataString.append(inputs.toString());
 
 
-        sendDataString.append("" +
-                                      "" +
-                                      "" +
-                                      "" + " this." + getFormDataProvider().getAnnotation()
-                                                                           .referenceName() +
-                                      ".sendData(this." + getFormDataProvider().getAnnotation()
-                                                                               .referenceName() + "." + getFormDataProvider().getAnnotation()
-                                                                                                                             .variableName() + ");  \n" + "}\n");
+        sendDataString.append("""
+                 this.%s.sendData(this.%s.%s);
+                }
+                """.formatted(getFormDataProvider().getAnnotation()
+                .referenceName(), getFormDataProvider().getAnnotation()
+                .referenceName(), getFormDataProvider().getAnnotation()
+                .variableName()));
         out.add(sendDataString.toString());
 
         return out;
@@ -114,7 +113,7 @@ public class AngularForm<J extends AngularForm<J>> extends Form<J> implements IN
             return "formDataProvider";
         }
         return getFormDataProvider().getAnnotation()
-                                    .referenceName();
+                .referenceName();
     }
 
     @Override
