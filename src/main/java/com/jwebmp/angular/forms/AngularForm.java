@@ -29,36 +29,27 @@ public class AngularForm<J extends AngularForm<J>> extends Form<J> implements IN
 
     }
 
-    @Override
-    public Set<String> moduleImports()
-    {
-        var s = INgComponent.super.moduleImports();
-        s.add("FormsModule");
-        return s;
-    }
-
-    @Override
-    public List<String> afterViewInit()
-    {
-        List<String> out = INgComponent.super.afterViewInit();
-        return out;
-    }
-
     public AngularForm(String id, INgServiceProvider<?> formDataProvider)
     {
         setID(id);
-        this.formDataProvider = formDataProvider;
+        setFormDataProvider(formDataProvider);
     }
 
     @Override
     protected void init()
     {
+        addAttribute("#" + getID(), "ngForm");
+        super.init();
+    }
+
+    public AngularForm<J> setFormDataProvider(INgServiceProvider<?> formDataProvider)
+    {
+        this.formDataProvider = formDataProvider;
         if (this.formDataProvider != null)
         {
             addConfiguration(getNgComponentReference((Class<? extends IComponent<?>>) formDataProvider.getClass()));
         }
-        addAttribute("#" + getID(), "ngForm");
-        super.init();
+        return this;
     }
 
     @Override
@@ -116,11 +107,4 @@ public class AngularForm<J extends AngularForm<J>> extends Form<J> implements IN
                 .referenceName();
     }
 
-    @Override
-    public List<NgComponentReference> getComponentReferences()
-    {
-        List<NgComponentReference> out = INgComponent.super.getComponentReferences();
-        out.add(getNgComponentReference((Class<? extends IComponent<?>>) formDataProvider.getClass()));
-        return out;
-    }
 }
