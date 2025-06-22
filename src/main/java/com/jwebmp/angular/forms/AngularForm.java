@@ -3,9 +3,11 @@ package com.jwebmp.angular.forms;
 import com.guicedee.client.IGuiceContext;
 import com.jwebmp.core.base.angular.client.annotations.components.NgInput;
 import com.jwebmp.core.base.angular.client.annotations.references.NgComponentReference;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.annotations.structures.NgField;
 import com.jwebmp.core.base.angular.client.services.AnnotationHelper;
+import com.jwebmp.core.base.angular.client.services.EventBusListenerDirective;
 import com.jwebmp.core.base.angular.client.services.interfaces.IComponent;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgServiceProvider;
@@ -19,7 +21,8 @@ import static com.jwebmp.core.base.angular.client.services.interfaces.Annotation
 @NgComponentReference(FormRegexProvider.class)
 @NgField("regex = FormRegexProvider;")
 @NgImportReference(value = "FormsModule", reference = "@angular/forms")
-
+@NgImportModule("FormsModule")
+@NgComponentReference(EventBusListenerDirective.class)
 public class AngularForm<J extends AngularForm<J>> extends Form<J> implements INgComponent<J>
 {
     private INgServiceProvider<?> formDataProvider;
