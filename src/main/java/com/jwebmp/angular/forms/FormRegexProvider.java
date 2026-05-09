@@ -7,18 +7,16 @@ import com.jwebmp.core.utilities.regex.RegularExpressionsDTO;
 import java.util.List;
 
 @NgDataType
-public class FormRegexProvider implements INgDataType<FormRegexProvider>
-{
+public class FormRegexProvider implements INgDataType<FormRegexProvider> {
     @Override
-    public List<String> fields()
-    {
+    public List<String> fields() {
         List<String> out = INgDataType.super.fields();
         RegularExpressionsDTO registeredExpressions = new RegularExpressionsDTO();
         registeredExpressions.getRegularExpressions()
-                             .forEach((name, pattern) -> {
-                                 out.add("public static " + name + " : string = `" + pattern.toString()
-                                                                                            .replace("`", "\\`") + "`");
-                             });
+                .forEach((name, pattern) -> {
+                    out.add("public static " + name + " : string = `" + pattern.toString()
+                            .replace("`", "\\`") + "`");
+                });
         return out;
     }
 }

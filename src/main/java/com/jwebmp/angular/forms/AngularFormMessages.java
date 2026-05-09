@@ -1,6 +1,6 @@
 package com.jwebmp.angular.forms;
 
-import com.guicedee.guicedinjection.pairing.Pair;
+import com.guicedee.client.utils.Pair;
 import com.jwebmp.angular.forms.enumerations.InputErrorValidations;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.Input;
@@ -52,9 +52,9 @@ public class AngularFormMessages<J extends AngularFormMessages<J>> extends DivSi
         return input;
     }
 
-    public AngularFormMessages<J> setInput(Input<?, ?> input)
+    public J setInput(Input<?, ?> input)
     {
         this.input = input;
-        return this;
+        return (J) this;
     }
 }

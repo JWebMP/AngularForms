@@ -23,7 +23,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.jwebmp.core</groupId>
+            <groupId>com.jwebmp</groupId>
             <artifactId>jwebmp-core</artifactId>
         </dependency>
 
@@ -44,21 +44,16 @@
 
         <dependency>
             <groupId>com.guicedee</groupId>
-            <artifactId>guice-injection</artifactId>
+            <artifactId>inject</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.jupiter.version}</version>
+            <groupId>com.jwebmp.core</groupId>
+            <artifactId>testlib</artifactId>
             <scope>test</scope>
-
         </dependency>
 
     </dependencies>
-    <scm>
-        <url>https://github.com/GedMarc/JWebMP-AngularJS.git</url>
-    </scm>
 
     <dependencyManagement>
         <dependencies>
@@ -71,11 +66,19 @@
             </dependency>
 
             <dependency>
+                <groupId>com.guicedee</groupId>
+                <artifactId>fasterxml-bom</artifactId>
+                <type>pom</type>
+                <scope>import</scope>
+                <version>${guicedee.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>com.jwebmp</groupId>
                 <artifactId>jwebmp-bom</artifactId>
                 <type>pom</type>
                 <scope>import</scope>
-                <version>${guicedee.version}</version>
+                <version>${jwebmp.version}</version>
             </dependency>
 
         </dependencies>

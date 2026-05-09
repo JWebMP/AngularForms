@@ -1,4 +1,4 @@
-import com.guicedee.guicedinjection.interfaces.IGuiceScanModuleInclusions;
+import com.guicedee.client.services.config.IGuiceScanModuleInclusions;
 import com.jwebmp.angular.forms.implementations.AngularFormScanModule;
 import com.jwebmp.angular.forms.implementations.AngularTSOnBind;
 import com.jwebmp.core.databind.IOnDataBind;
@@ -10,6 +10,7 @@ module com.jwebmp.angular.forms {
 
     requires transitive com.jwebmp.core.angular;
     requires transitive com.jwebmp.core;
+    requires transitive com.guicedee.client;
 
     provides IOnDataBind with AngularTSOnBind;
     provides IGuiceScanModuleInclusions with AngularFormScanModule;
