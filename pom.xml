@@ -19,6 +19,7 @@
 
     <properties>
         <ignore.moditect>true</ignore.moditect>
+        <project.scm.nameUrl>/JWebMP/AngularForms</project.scm.nameUrl>
     </properties>
 
     <dependencies>
