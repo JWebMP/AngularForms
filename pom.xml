@@ -5,12 +5,12 @@
     <parent>
         <groupId>com.jwebmp</groupId>
         <artifactId>parent</artifactId>
-        <version>2.1.0-SNAPSHOT</version>
+        <version>2.0.3-SNAPSHOT</version>
     </parent>
 
     <groupId>com.jwebmp.plugins</groupId>
     <artifactId>angular-forms</artifactId>
-    <version>2.1.0-SNAPSHOT</version>
+    <version>2.0.3-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Angular Forms</name>
     <description>Angular Forms
