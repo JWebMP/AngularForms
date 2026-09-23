@@ -23,30 +23,14 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.jwebmp</groupId>
-            <artifactId>jwebmp-core</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>com.jwebmp.plugins</groupId>
             <artifactId>angular</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.jwebmp.plugins</groupId>
-            <artifactId>typescript-client</artifactId>
-        </dependency>
 
-        <dependency>
-            <groupId>com.jwebmp</groupId>
-            <artifactId>jwebmp-vertx</artifactId>
-        </dependency>
 
-        <dependency>
-            <groupId>com.guicedee</groupId>
-            <artifactId>inject</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>com.jwebmp.core</groupId>

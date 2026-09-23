@@ -9,8 +9,6 @@ module com.jwebmp.angular.forms {
     exports com.jwebmp.angular.forms.enumerations;
 
     requires transitive com.jwebmp.core.angular;
-    requires transitive com.jwebmp.core;
-    requires transitive com.guicedee.client;
 
     provides IOnDataBind with AngularTSOnBind;
     provides IGuiceScanModuleInclusions with AngularFormScanModule;
